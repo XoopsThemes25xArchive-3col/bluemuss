@@ -1,0 +1,31 @@
+<div id="usermenu">
+  <{if $xoops_isadmin}>
+  <a href="<{xoAppUrl /admin.php}>" rel="external" title="<{$block.lang_adminmenu}>">
+    <img src="<{xoImgUrl icons/users/admin.png}>" alt="<{$block.lang_adminmenu}>" title="<{$block.lang_adminmenu}>" />
+    &nbsp;<{$block.lang_adminmenu}>
+  </a>
+  <{/if}>
+  <a href="<{xoAppUrl /user.php}>" title="<{$block.lang_youraccount}>">
+    <img src="<{xoImgUrl icons/users/profile.png}>" alt="<{$block.lang_youraccount}>" title="<{$block.lang_youraccount}>" />
+    &nbsp;<{$block.lang_youraccount}>
+  </a>
+  <a href="<{xoAppUrl /notifications.php}>">
+    <img src="<{xoImgUrl icons/users/notif.png}>" alt="<{$block.lang_notifications}>" title="<{$block.lang_notifications}>" />
+    &nbsp;<{$block.lang_notifications}>
+  </a>
+  <{if $block.new_messages > 0}>
+  <a href="<{xoAppUrl /viewpmsg.php}>">
+    <img src="<{xoImgUrl icons/users/pm-full.png}>" alt="<{$block.new_messages}>" title="<{$block.new_messages}>" />
+    &nbsp;<span class="red bold"><{$block.lang_inbox}></span> (<span class="bold"><{$block.new_messages}></span>)
+  </a>
+  <{else}>
+  <a href="<{xoAppUrl /viewpmsg.php}>">
+    <img src="<{xoImgUrl icons/users/pm.png}>" alt="<{$block.lang_inbox}>" title="<{$block.lang_inbox}>" />
+    &nbsp;<{$block.lang_inbox}>
+  </a>
+  <{/if}>
+  <a href="<{xoAppUrl /user.php op=logout}>">
+    <img src="<{xoImgUrl icons/users/exit.png}>" alt="<{$block.lang_logout}>" title="<{$block.lang_logout}>" />
+    &nbsp;<{$block.lang_logout}>
+  </a>
+</div>

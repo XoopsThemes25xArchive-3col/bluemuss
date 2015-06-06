@@ -1,0 +1,27 @@
+<div id="mainmenu">
+  <{if $xoops_dirname == 'system'}>
+  <a class="current" href="<{$xoops_url}>/" title="<{$block.lang_home}>">
+    <img src="<{xoImgUrl icons/home.png}>" alt="<{$block.lang_home}>" title="<{$block.lang_home}>" />
+    &nbsp;<{$block.lang_home}>
+  </a>
+  <{else}>
+  <a href="<{$xoops_url}>/" title="<{$block.lang_home}>">
+    <img src="<{xoImgUrl icons/home.png}>" alt="<{$block.lang_home}>" title="<{$block.lang_home}>" />
+    &nbsp;<{$block.lang_home}>
+  </a>
+  <{/if}>
+  <!-- start module menu loop -->
+  <{foreach item=module from=$block.modules}>
+    <{if $xoops_dirname == $module.directory}>
+    <{assign var=class value=" current"}>
+    <{/if}>
+    <a class="menuMain<{$class}>" href="<{$xoops_url}>/modules/<{$module.directory}>/" title="<{$module.name}>">
+      <img src="<{xoImgUrl icons/blank.png}>" alt="<{$module.name}>" title="<{$module.name}>" />
+      &nbsp;<{$module.name}>
+    </a>
+    <{foreach item=sublink from=$module.sublinks}>
+    <a class="menuSub" href="<{$sublink.url}>"><{$sublink.name}></a>
+    <{/foreach}>
+  <{/foreach}>
+  <!-- end module menu loop -->
+</div>

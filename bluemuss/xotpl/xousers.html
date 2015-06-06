@@ -1,0 +1,30 @@
+<div id="xo-userbar">
+  <{if $xoops_isadmin}>
+  <a href="<{xoAppUrl /user.php}>">
+    <img src="<{xoImgUrl icons/users/profile.png}>" alt="Profile" title="Profile" />
+  </a>
+  <{xoInboxCount assign=pmcount}>
+  <a href="<{xoAppUrl /viewpmsg.php}>">
+    <{if $pmcount}>
+    <img src="<{xoImgUrl icons/users/pm-full.png}>" alt="You have <{$pmcount}> in your Inbox" title="You have <{$pmcount}> in your Inbox" />
+    <{else}>
+    <img src="<{xoImgUrl icons/users/pm.png}>" alt="Inbox content" title="Inbox content" />
+    <{/if}>
+  </a>
+  <a href="<{xoAppUrl /notifications.php}>">
+    <img src="<{xoImgUrl icons/users/notif.png}>" alt="Notifications" title="Notifications" />
+  </a>
+  <{if $xoops_isadmin}>
+  <a href="<{xoAppUrl /admin.php}>" rel="external">
+    <img src="<{xoImgUrl icons/users/admin.png}>" alt="Control Panel" title="Control Panel" />
+  </a>
+  <{/if}>
+  <a href="<{xoAppUrl /user.php op=logout}>">
+    <img src="<{xoImgUrl icons/users/exit.png}>" alt="Logout" title="Logout" />
+  </a>
+  <{else}>
+  <a href="<{xoAppUrl /register.php}>" title="Register Now">
+    <span class="text">Register Now</span><img src="<{xoImgUrl icons/users/register.png}>" alt="Register Now" title="Register Now" />
+  </a>
+  <{/if}>
+</div>

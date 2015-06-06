@@ -1,0 +1,179 @@
+<{if $user_ownpage == true}>
+<div class="txtcenter spacer">
+  <a class="xo-formbuttons" href="<{xoAppUrl /edituser.php}>" title="<{$lang_editprofile}>">
+    <img src="<{xoImgUrl icons/users/edit.png}>" alt="<{$lang_editprofile}>" title="<{$lang_editprofile}>" />
+    <{$lang_editprofile}>
+  </a>&nbsp;
+  <a class="xo-formbuttons" href="<{xoAppUrl /edituser.php op=avatarform}>" title="<{$lang_avatar}>">
+    <img src="<{xoImgUrl icons/users/avatar.png}>" alt="<{$lang_avatar}>" title="<{$lang_avatar}>" />
+    <{$lang_avatar}>
+  </a>&nbsp;
+  <a class="xo-formbuttons" href="<{xoAppUrl /viewpmsg.php}>" title="<{$lang_inbox}>">
+    <img src="<{xoImgUrl icons/users/pm.png}>" alt="<{$lang_inbox}>" title="<{$lang_inbox}>" />
+    <{$lang_inbox}>
+  </a>&nbsp;
+  <{if $user_candelete == true}>
+  <a class="xo-formbuttons" href="<{xoAppUrl /user.php op=delete}>" title="<{$lang_deleteaccount}>">
+    <img src="<{xoImgUrl icons/users/delete.png}>" alt="<{$lang_deleteaccount}>" title="<{$lang_deleteaccount}>" />
+    <{$lang_deleteaccount}>
+  </a>&nbsp;
+  <{/if}>
+  <a class="xo-formbuttons" href="<{xoAppUrl /user.php op=logout}>" title="<{$lang_logout}>">
+    <img src="<{xoImgUrl icons/users/exit.png}>" alt="<{$lang_logout}>" title="<{$lang_logout}>" />
+    <{$lang_logout}>
+  </a>
+</div>
+<{elseif $xoops_isadmin != false}>
+<div class="txtcenter width100">
+  <a class="xo-formbuttons" href="<{$xoops_url}>/modules/system/admin.php?fct=users&uid=<{$user_uid}>&op=modifyUser" title="<{$lang_editprofile}>">
+    <img src="<{xoImgUrl icons/users/edit.png}>" alt="<{$lang_editprofile}>" title="<{$lang_editprofile}>" />
+    <{$lang_editprofile}>
+  </a>&nbsp;
+  <a class="xo-formbuttons" href="<{$xoops_url}>/modules/system/admin.php?fct=users&op=delUser&uid=<{$user_uid}>" title="<{$lang_deleteaccount}>">
+    <img src="<{xoImgUrl icons/users/delete.png}>" alt="<{$lang_deleteaccount}>" title="<{$lang_deleteaccount}>" />
+    <{$lang_deleteaccount}>
+  </a>
+</div>
+<{/if}>
+
+<table>
+  <tr>
+    <td width="50%">
+      <table class="outer" cellspacing="1">
+        <tr>
+          <th class="txtcenter" colspan="2"><{$lang_allaboutuser}></th>
+        </tr>
+        <tr>
+          <td class="head"><{$lang_avatar}></td>
+          <td align="center" class="even"><img src="<{$user_avatarurl}>" alt="Avatar" /></td>
+        </tr>
+        <{if $user_realname}>
+        <tr>
+          <td class="head"><{$lang_realname}></td>
+          <td align="center" class="odd"><{$user_realname}></td>
+        </tr>
+        <{/if}>
+        <{if $user_websiteurl}>
+        <tr>
+          <td class="head"><{$lang_website}></td>
+          <td class="even"><{$user_websiteurl}></td>
+        </tr>
+        <{/if}>
+        <{if $user_email}>
+        <tr>
+          <td class="head"><{$lang_email}></td>
+          <td class="odd"><{mailto address="$user_email" encode="javascript"}></td>
+        </tr>
+        <{/if}>
+        <{if $user_pmlink}>
+        <tr>
+          <td class="head"><{$lang_privmsg}></td>
+          <td class="even"><{$user_pmlink}></td>
+        </tr>
+        <{/if}>
+        <{if $user_icq}>
+        <tr>
+          <td class="head"><{$lang_icq}></td>
+          <td class="odd"><{$user_icq}></td>
+        </tr>
+        <{/if}>
+        <{if $user_aim}>
+        <tr>
+          <td class="head"><{$lang_aim}></td>
+          <td class="even"><{$user_aim}></td>
+        </tr>
+        <{/if}>
+        <{if $user_yim}>
+        <tr>
+          <td class="head"><{$lang_yim}></td>
+          <td class="odd"><{$user_yim}></td>
+        </tr>
+        <{/if}>
+        <{if $user_msnm}>
+        <tr>
+          <td class="head"><{$lang_msnm}></td>
+          <td class="even"><{$user_msnm}></td>
+        </tr>
+        <{/if}>
+        <{if $user_location}>
+        <tr>
+          <td class="head"><{$lang_location}></td>
+          <td class="odd"><{$user_location}></td>
+        </tr>
+        <{/if}>
+        <{if $user_occupation}>
+        <tr>
+          <td class="head"><{$lang_occupation}></td>
+          <td class="even"><{$user_occupation}></td>
+        </tr>
+        <{/if}>
+        <{if $user_interest}>
+        <tr>
+          <td class="head"><{$lang_interest}></td>
+          <td class="odd"><{$user_interest}></td>
+        </tr>
+        <{/if}>
+        <{if $user_extrainfo}>
+        <tr>
+          <td class="head"><{$lang_extrainfo}></td>
+          <td class="even"><{$user_extrainfo}></td>
+        </tr>
+        <{/if}>
+      </table>
+    </td>
+    <td width="50%">
+      <table class="outer" cellpadding="4" cellspacing="1" width="100%">
+        <tr>
+          <th colspan="2" align="center"><{$lang_statistics}></th>
+        </tr>
+        <tr>
+          <td class="head"><{$lang_membersince}></td>
+          <td align="center" class="even"><{$user_joindate}></td>
+        </tr>
+        <tr>
+          <td class="head"><{$lang_rank}></td>
+          <td align="center" class="odd"><{$user_rankimage}><br /><{$user_ranktitle}></td>
+        </tr>
+        <tr>
+          <td class="head"><{$lang_posts}></td>
+          <td align="center" class="even"><{$user_posts}></td>
+        </tr>
+        <tr>
+          <td class="head"><{$lang_lastlogin}></td>
+          <td align="center" class="odd"><{$user_lastlogin}></td>
+        </tr>
+      </table>
+      <{if $user_signature}>
+      <br />
+      <table class="outer" cellpadding="4" cellspacing="1" width="100%">
+        <tr>
+          <th colspan="2" align="center"><{$lang_signature}></th>
+        </tr>
+        <tr>
+          <td class="even"><{$user_signature}></td>
+        </tr>
+      </table>
+      <{/if}>
+    </td>
+  </tr>
+</table>
+
+<!-- start module search results loop -->
+<{foreach item=module from=$modules}>
+
+<p>
+<h4><{$module.name}></h4>
+
+  <!-- start results item loop -->
+  <{foreach item=result from=$module.results}>
+
+  <img src="<{$result.image}>" alt="<{$module.name}>" /><b><a href="<{$result.link}>"><{$result.title}></a></b><br /><small>(<{$result.time}>)</small><br />
+
+  <{/foreach}>
+  <!-- end results item loop -->
+
+<{$module.showall_link}>
+</p>
+
+<{/foreach}>
+<!-- end module search results loop -->
